@@ -1,0 +1,91 @@
+package com.example.fitnessapp.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@Entity
+public class Data {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String title;
+	private int hr;
+	private double length;
+
+	@ManyToOne
+	@JoinColumn(name = "categoryid")
+	@JsonManagedReference
+	private Category category;
+
+	public Data() {
+
+	}
+
+	public Data(String title, int hr, double length, Category category) {
+		super();
+		this.title = title;
+		this.hr = hr;
+		this.length = length;
+		this.category = category;
+
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public int getHr() {
+		return hr;
+	}
+
+	public void setHr(int hr) {
+		this.hr = hr;
+	}
+
+	
+	public double getLength() {
+		return length;
+	}
+
+	public void setPrice(double length) {
+		this.length = length;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		if (category != null) {
+		return "Book [id=" + id + ", title=" + title + ", hr=" + hr + ", length=" + length + "]" + " category =" + this.getCategory() + "]";
+	} else 
+		return "Book [id=" + id + ", title=" + title + ", author=" + ", year=" + ", ISBN=" +
+				", price="  + "]";
+	}
+
+}
