@@ -18,6 +18,7 @@ public class Data {
 	private String title;
 	private int hr;
 	private double length;
+	private int time;
 
 	@ManyToOne
 	@JoinColumn(name = "categoryid")
@@ -28,13 +29,23 @@ public class Data {
 
 	}
 
-	public Data(String title, int hr, double length, Category category) {
+	public Data(String title, int hr, double length, int time, Category category) {
 		super();
 		this.title = title;
 		this.hr = hr;
 		this.length = length;
+		this.time = time;
 		this.category = category;
+	
 
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
 	}
 
 	public Long getId() {

@@ -16,19 +16,22 @@
 			<tr>
 				<th>ID</th>
 				<th>Name</th>
-				<th>HR</th>
-				<th>Length</th>
+				<th>HR (Avg.)</th>
+				<th>Length (Km.)</th>
+				<th>Duration (Min.)</th>
 				<th>Category</th>
+				
 			</tr>
 			<tr th:each="data : ${listofdata}">
 				<td th:text="${data.id}"></td>
 				<td th:text="${data.title}"></td>
 				<td th:text="${data.hr}"></td>
 				<td th:text="${data.length}"></td>
+				<td th:text="${data.time}"></td>
 				<td th:text="${data.category}"></td>
-				<td sec:authorize="hasRole('ADMIN')"><a
-					th:href="@{/delete/{id}(id=${data.id})}">Delete</a></td>
-				<td><a th:href="@{/edit/{id}(id=${data.id})}">Edit</a></td>
+				<td><a
+					th:href="@{/delete/{id}(id=${data.id})}" class="btn btn-success">Delete</a></td>
+				<td><a th:href="@{/edit/{id}(id=${data.id})}" class="btn btn-success">Edit</a></td>
 			</tr>
 		</table>
 		<a href="/add" class="btn btn-success">Add data</a>

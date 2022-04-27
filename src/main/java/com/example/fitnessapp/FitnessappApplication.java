@@ -31,9 +31,9 @@ public class FitnessappApplication {
 			crepository.save(new Category("Walk"));
 			System.out.println("Insert a excersise ");
 			System.out.println("-------------------");
-			repository.save(new Data("run", 145, 19.99,
+			repository.save(new Data("run", 145, 19.99, 20,
 					crepository.findByName("Run").get(0)));
-			repository.save(new Data("run", 145, 19.99,
+			repository.save(new Data("run", 145, 19.99, 45,
 					crepository.findByName("Walk").get(0)));
 			System.out.println("");
 			System.out.println("Saving users in the userlog");
