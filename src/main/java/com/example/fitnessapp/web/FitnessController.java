@@ -49,14 +49,14 @@ public class FitnessController {
 	}
 
 	// RESTful service to get book by ID
-	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/data/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Data> findDataRest(@PathVariable("id") Long id) {
 		return repository.findById(id);
 	}
 
 	@RequestMapping("/add")
-	public String addBook(Model model) {
-		model.addAttribute("book", new Data());
+	public String addData(Model model) {
+		model.addAttribute("data", new Data());
 		model.addAttribute("categories", crepository.findAll());
 		return "adddata";
 	}
@@ -69,13 +69,13 @@ public class FitnessController {
 	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-	public String deleteBook(@PathVariable("id") Long id, Model model) {
+	public String deleteData(@PathVariable("id") Long id, Model model) {
 		repository.deleteById(id);
 		return "redirect:../list";
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	public String editBook(@PathVariable("id") Long id, Model model) {
+	public String editData(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("data", repository.findById(id));
 		model.addAttribute("categories", crepository.findAll());
 		return "editdata";

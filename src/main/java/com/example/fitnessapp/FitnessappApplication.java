@@ -25,16 +25,16 @@ public class FitnessappApplication {
 	public CommandLineRunner fitnessDemo(DataRepository repository, CategoryRepository crepository,
 			UserRepository urepository) {
 		return (args) -> {
-			System.out.println("Save new repo");
+			System.out.println("Save new categories");
 			crepository.save(new Category("Run"));
 			crepository.save(new Category("Jog"));
 			crepository.save(new Category("Walk"));
-			System.out.println("Insert a book");
+			System.out.println("Insert a excersise ");
 			System.out.println("-------------------");
 			repository.save(new Data("run", 145, 19.99,
 					crepository.findByName("Run").get(0)));
 			repository.save(new Data("run", 145, 19.99,
-					crepository.findByName("walk").get(0)));
+					crepository.findByName("Walk").get(0)));
 			System.out.println("");
 			System.out.println("Saving users in the userlog");
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
@@ -42,7 +42,7 @@ public class FitnessappApplication {
 			urepository.save(user1);
 			urepository.save(user2);
 
-			System.out.println("Customers found with findAll():");
+			System.out.println("Excercises found with findAll():");
 			System.out.println("-------------------------------");
 			for (Data data : repository.findAll()) {
 				System.out.println(data.toString());

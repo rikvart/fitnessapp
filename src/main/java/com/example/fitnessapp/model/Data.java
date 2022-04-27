@@ -67,7 +67,7 @@ public class Data {
 		return length;
 	}
 
-	public void setPrice(double length) {
+	public void setLength(double length) {
 		this.length = length;
 	}
 

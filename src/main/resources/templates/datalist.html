@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}">
 <title>List of fitness activities</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -10,7 +12,7 @@
 		<h1>Fitness data</h1>
 
 
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<th>ID</th>
 				<th>Name</th>
@@ -18,18 +20,18 @@
 				<th>Length</th>
 				<th>Category</th>
 			</tr>
-			<tr th:each="book : ${listofdata}">
+			<tr th:each="data : ${listofdata}">
 				<td th:text="${data.id}"></td>
 				<td th:text="${data.title}"></td>
 				<td th:text="${data.hr}"></td>
 				<td th:text="${data.length}"></td>
 				<td th:text="${data.category}"></td>
 				<td sec:authorize="hasRole('ADMIN')"><a
-					th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
-				<td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
+					th:href="@{/delete/{id}(id=${data.id})}">Delete</a></td>
+				<td><a th:href="@{/edit/{id}(id=${data.id})}">Edit</a></td>
 			</tr>
 		</table>
-		<a href="/add">Add data</a>
+		<a href="/add" class="btn btn-success">Add data</a>
 
 
 		<div id="userlogin">
