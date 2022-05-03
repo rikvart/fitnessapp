@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div>
-		<h1>Fitness data</h1>
+		<h1>Exercise data</h1>
 
 
 		<table class="table table-striped">
@@ -20,7 +20,9 @@
 				<th>Length (Km.)</th>
 				<th>Duration (Min.)</th>
 				<th>Category</th>
-				
+				<th></th>
+				<th></th>
+
 			</tr>
 			<tr th:each="data : ${listofdata}">
 				<td th:text="${data.id}"></td>
@@ -29,26 +31,25 @@
 				<td th:text="${data.length}"></td>
 				<td th:text="${data.time}"></td>
 				<td th:text="${data.category}"></td>
-				<td><a
+				<td sec:authorize="isAuthenticated()"><a
 					th:href="@{/delete/{id}(id=${data.id})}" class="btn btn-success">Delete</a></td>
-				<td><a th:href="@{/edit/{id}(id=${data.id})}" class="btn btn-success">Edit</a></td>
+				<td sec:authorize="isAuthenticated()"><a
+					th:href="@{/edit/{id}(id=${data.id})}" class="btn btn-success">Edit</a></td>
 			</tr>
 		</table>
 		<a href="/add" class="btn btn-success">Add data</a>
-
+		<div>
+			<br>
+		</div>
 
 		<div id="userlogin">
-			<h3 id="usermessage"
-				th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
-			<form th:action="@{/login}" method="post">
-				<input type="submit" value="Login" />
-			</form>
-
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" value="Sign Out" />
-			</form>
-
-
+			<h5 id="usermessage" th:inline="text">
+				Logged in as [[${#httpServletRequest.remoteUser}]]!
+				</h5>
+				<form th:action="@{/logout}" method="post"
+					sec:authorize="isAuthenticated()">
+					<input type="submit" value="Sign Out" />
+				</form>
 		</div>
 
 	</div>
