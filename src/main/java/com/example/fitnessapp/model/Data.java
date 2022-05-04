@@ -83,7 +83,7 @@ public class Data {
 
 	public Category getCategory() {
 		return category;
-	}
+	} 
 
 	public void setCategory(Category category) {
 		this.category = category;

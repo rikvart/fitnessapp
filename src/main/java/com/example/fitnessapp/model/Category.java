@@ -14,9 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Category {
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long categoryid;
+	
 	private String name;
 	
 	@JsonIgnore

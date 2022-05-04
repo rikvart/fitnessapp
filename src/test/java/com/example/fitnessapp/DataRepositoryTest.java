@@ -11,7 +11,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.example.fitnessapp.model.Data;
 import com.example.fitnessapp.model.DataRepository;
-import com.example.fitnessapp.model.Category;
 import com.example.fitnessapp.model.CategoryRepository;
 
 import org.junit.jupiter.api.Test;

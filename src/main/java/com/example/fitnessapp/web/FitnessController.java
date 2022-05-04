@@ -42,7 +42,7 @@ public class FitnessController {
 		return "datalist";
 	}
 
-	//Get all exercises
+	//Get all exercises RESTful
 	@RequestMapping(value = "/datas", method = RequestMethod.GET)
 	public @ResponseBody List<Data> DataListRest() {
 		return (List<Data>) repository.findAll();
