@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.example.fitnessapp.model.Data;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -48,11 +48,11 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Data> getBooks() {
+	public List<Data> getDatas() {
 		return alldata;
 	}
 
-	public void setBooks(List<Data> alldata) {
+	public void setDatas(List<Data> alldata) {
 		this.alldata = alldata;
 	}
 

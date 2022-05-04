@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Add exercise data</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,13 +11,16 @@
 	<div>
 		<form th:object="${data}" th:action="@{save}" action="#" method="post">
 		  	<label for="dtitle">Title</label>
-			<input type="text" id="bname" th:field="*{title}" />
+			<input type="text" id="bname" th:field="*{title}" class="form-group"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="dhr">Heart rate (avg.)</label>
-			<input type="number" th:field="*{hr}" />
+			<input type="number" th:field="*{hr}" class="form-group"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="dlength">Length</label>
-			<input type="number" step='0.01' id="dlength" th:field="*{length}" />
+			<input type="number" step='0.01' id="dlength" th:field="*{length}" class="form-group"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="dlength">Duration</label>
+			<input type="number" step='1' id="dlength" th:field="*{time}" class="form-group"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="catlist">Category</label>
 			<select id="catlist" th:field="*{category}" class="form-control">

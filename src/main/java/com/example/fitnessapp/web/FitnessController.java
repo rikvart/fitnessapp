@@ -35,20 +35,20 @@ public class FitnessController {
 	}    
 	
 	
-	// Show all books
+	// Show all data
 	@RequestMapping("/list")
 	public String listData(Model model) {
 		model.addAttribute("listofdata", repository.findAll());
 		return "datalist";
 	}
 
-	// RESTful get all books
-	@RequestMapping(value = "/books", method = RequestMethod.GET)
+	//Get all exercises
+	@RequestMapping(value = "/datas", method = RequestMethod.GET)
 	public @ResponseBody List<Data> DataListRest() {
 		return (List<Data>) repository.findAll();
 	}
 
-	// RESTful service to get book by ID
+	// RESTful service to get data by ID
 	@RequestMapping(value = "/data/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Data> findDataRest(@PathVariable("id") Long id) {
 		return repository.findById(id);

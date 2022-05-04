@@ -9,9 +9,11 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+
+
 @Entity
 public class Data {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -36,16 +38,7 @@ public class Data {
 		this.length = length;
 		this.time = time;
 		this.category = category;
-	
 
-	}
-
-	public int getTime() {
-		return time;
-	}
-
-	public void setTime(int time) {
-		this.time = time;
 	}
 
 	public Long getId() {
@@ -56,6 +49,14 @@ public class Data {
 		this.id = id;
 	}
 
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -63,7 +64,6 @@ public class Data {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 	public int getHr() {
 		return hr;
@@ -73,7 +73,6 @@ public class Data {
 		this.hr = hr;
 	}
 
-	
 	public double getLength() {
 		return length;
 	}
@@ -93,10 +92,10 @@ public class Data {
 	@Override
 	public String toString() {
 		if (category != null) {
-		return "Book [id=" + id + ", title=" + title + ", hr=" + hr + ", length=" + length + "]" + " category =" + this.getCategory() + "]";
-	} else 
-		return "Book [id=" + id + ", title=" + title + ", author=" + ", year=" + ", ISBN=" +
-				", price="  + "]";
+			return "Data [id=" + id + ", title=" + title + ", hr=" + hr + ", length=" + length + "]" + " category ="
+					+ this.getCategory() + "]";
+		} else
+			return "Data [id=" + id + ", title=" + title + ", author=" + ", year=" + ", ISBN=" + ", price=" + "]";
 	}
 
 }

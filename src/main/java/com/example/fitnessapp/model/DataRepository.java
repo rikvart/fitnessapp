@@ -1,4 +1,5 @@
 package com.example.fitnessapp.model;
+
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
