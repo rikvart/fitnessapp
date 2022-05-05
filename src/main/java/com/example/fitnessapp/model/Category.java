@@ -23,7 +23,7 @@ public class Category {
 	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-	private List<Data> alldata;
+	private List<Data> datas;
 	
 	public Category () {
 		
@@ -51,11 +51,11 @@ public class Category {
 	}
 
 	public List<Data> getDatas() {
-		return alldata;
+		return datas;
 	}
 
 	public void setDatas(List<Data> alldata) {
-		this.alldata = alldata;
+		this.datas = datas;
 	}
 
 	@Override
