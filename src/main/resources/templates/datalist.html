@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
+
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
 	th:href="@{css/bootstrap.min.css}">
@@ -31,7 +33,7 @@
 				<td th:text="${data.length}"></td>
 				<td th:text="${data.time}"></td>
 				<td th:text="${data.category}"></td>
-				<td sec:authorize="isAuthenticated()"><a
+				<td sec:authorize="hasRole('ADMIN')"><a
 					th:href="@{/delete/{id}(id=${data.id})}" class="btn btn-success">Delete</a></td>
 				<td sec:authorize="isAuthenticated()"><a
 					th:href="@{/edit/{id}(id=${data.id})}" class="btn btn-success">Edit</a></td>

@@ -24,7 +24,6 @@ public class Data {
 
 	@ManyToOne
 	@JoinColumn(name = "categoryid")
-	@JsonManagedReference
 	private Category category;
 
 	public Data() {
